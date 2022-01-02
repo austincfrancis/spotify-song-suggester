@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spotify Song Suggestor</title>
+        <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+        <style>
+            body {
+                background-color: #191414;
+                color: #ffffff;
+            }
+            nav {
+                background-color: #191414;
+                color: #ffffff;
+            }
+            div.input {
+                color: #1DB954;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/" class="brand"><span>
+                <img src="static/images/spotify-logo.png" alt="Spotify Logo" width="30" height="30">
+                Spotify Song Suggestor
+            </span></a>
+            <input id="bmenub" type="checkbox" class="show">
+            <label for="bmenub" class="burger pseudo button">Menu</label>
+            <div class="menu">
+                <a href="/about" class="button normal">About</a>
+              </div>
+        </nav>
+        <div class="flex demo" style="padding: 3em 1em;">
+            <h3>Your one stop shop for similar songs!</h3>
+            <div class='input'>
+                <form action="/results" method="POST">
+                    <label for="search">Search Songs:</label>
+                    <input type="text" name="search">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

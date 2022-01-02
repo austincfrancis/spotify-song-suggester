@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8"
+      <title>Spotify Song Suggestor</title>
+      <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+      <style>
+            body {
+                background-color: #191414;
+                color: #ffffff;
+            }
+            nav {
+                background-color: #191414;
+                color: #ffffff;
+            }
+            div.input {
+                color: #1DB954;
+            }
+            .grid-container {
+                display: grid;
+            }
+       </style>
+  </head>
+  <body>
+      <nav>
+      	<a href="/" class="brand">
+        	<span>
+        		<img src="static/images/spotify-logo.png" alt="Spotify Logo" width="30" height="30">
+            	Spotify Song Suggestor
+      		</span>
+        </a>
+        
+        <input id="bmenub" type="checkbox" class="show">
+        
+        <label for="bmenub" class="burger pseudo button">Menu</label>
+        
+        <div class="menu">
+        	<a href="/" class="button normal">Home</a>
+        </div>
+      </nav>
+      <div style="padding: 3em 1em;">
+      	<h3>Here are some songs you may enjoy:</h3>
+      	
+        <div class="box" style="width:50%; margin:auto; background-color:rgba(30, 215, 96, 0.5); border-style:solid;">
+          {% for song in songs %}
+            <p>{{song}}</p>
+          {% endfor %}
+        </div>
+      </div>
+  </body>
+</html>

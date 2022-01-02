@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spotify Song Suggestor</title>
+        <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+        <style>
+            body {
+                background-color: #191414;
+                color: #ffffff;
+            }
+            nav {
+                background-color: #191414;
+                color: #ffffff;
+            }
+            div.input {
+                color: #1DB954;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/" class="brand"><span>
+                <img src="static/images/spotify-logo.png" alt="Spotify Logo" width="30" height="30">
+                Spotify Song Suggestor
+            </span></a>
+            <input id="bmenub" type="checkbox" class="show">
+            <label for="bmenub" class="burger pseudo button">Menu</label>
+            <div class="menu">
+                <a href="/about" class="button normal">About</a>
+              </div>
+        </nav>
+        <div style="padding: 3em 1em;">
+            <h2>Methodology</h2>
+            <p>We started with a dataset containing over 170k songs from The Spotify API. Then, using features 
+               such as 'danceability', 'key', 'popularity', 'tempo', 'valence', and 'year', we use a MinMaxScaler 
+               from scikit-learn to scale all features between 0 and 1. Next, we use Principal Component Analysis 
+               (PCA) for Dimensionality Reduction to reduce the number of features from 15 to 7. Finally, we use a 
+               Nearest Neighbors model (using Manhattan distance) to find and return the 10 most similar songs to 
+               the user's input.</p>
+        </div>
+    </body>
+</html>
