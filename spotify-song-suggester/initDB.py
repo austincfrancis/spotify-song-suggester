@@ -1,4 +1,4 @@
-import json, csv
+import json, csv, re
 from mongoDB import Mongo
 from os import getenv 
 from alive_progress import alive_bar
@@ -15,6 +15,11 @@ csvReader = csv.DictReader(csvf)
 with alive_bar(171223, bar='classic2', spinner='classic') as bar:
     for i, row in enumerate(csvReader):
         row["name"] = row["name"].lower()
+        row["artists"] = re.sub("'", "", row["artists"])
+        row["artists"] = re.sub('"', "", row["artists"])
+        row["artists"] = re.sub("\[", "", row["artists"])
+        row["artists"] = re.sub("\]", "", row["artists"])
+
         mongo.insert_one({"_id": row["id"], "acousticness": row["acousticness"], "artists": row["artists"], "danceability": row["danceability"], "energy": row["energy"], "explicit": row["explicit"], "instrumentalness": row["instrumentalness"], "key": row["key"], "liveness": row["liveness"], "loudness": row["loudness"], "mode": row["mode"], "name": row["name"], "popularity": row["popularity"], "speechiness": row["speechiness"], "tempo": row["tempo"], "valence": row["valence"], "year": row["year"], "duration_min": row["duration_min"], "record_number": i})
         bar()
 
