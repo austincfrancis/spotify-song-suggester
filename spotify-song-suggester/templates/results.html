@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8"
+      <meta charset="UTF-8">
       <title>Spotify Song Suggestor</title>
       <link rel="stylesheet" href="https://unpkg.com/picnic"/>
       <style>
@@ -35,7 +35,7 @@
         <label for="bmenub" class="burger pseudo button">Menu</label>
         
         <div class="menu">
-        	<a href="/" class="button normal">Home</a>
+        	<a href="/about" class="button normal">About</a>
         </div>
       </nav>
       <div style="padding: 3em 1em;">
@@ -43,7 +43,10 @@
       	
         <div class="box" style="width:50%; margin:auto; background-color:rgba(30, 215, 96, 0.5); border-style:solid;">
           {% for song in songs %}
-            <p>{{song}}</p>
+            <p> &nbsp;{{song}} </p>
+            {% if loop.index % 2 == 0 and loop.index != songs|length %}
+              <hr style="width:100%", size="5", color=white>
+            {% endif %}
           {% endfor %}
         </div>
       </div>
